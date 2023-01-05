@@ -1,8 +1,29 @@
-//
-// Created by 김정민 on 2023-01-04.
-//
+#ifndef NODE_H
+#define NODE_H
 
-#ifndef DATASTRUCTURE_NODE_H
-#define DATASTRUCTURE_NODE_H
+#include <sstream>
 
-#endif //DATASTRUCTURE_NODE_H
+template<typename T>
+class DoublyLinkedList;
+
+template<typename T>
+class Node {
+    friend class DoublyLinkedList<T>;
+
+    friend std::ostream& operator<<(std::ostream&, const Node<T>&);
+
+    friend std::istream& operator<<(std::ostream&, const DoublyLinkedList<T>&);
+
+
+private:
+    Node *prev;
+    Node *next;
+    T data;
+public:
+    Node<T>();
+
+    Node<T>(T, Node *);
+
+};
+
+#endif
